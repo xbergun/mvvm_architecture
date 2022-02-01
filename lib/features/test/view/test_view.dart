@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mvvm_architecture/core/base/state/base_state.dart';
+import '../../../core/base/state/base_state.dart';
+import '../../../core/base/view/base_widget.dart';
+import '../viewmodel/test_view_model.dart';
+
 class TestView extends StatefulWidget {
-  TestView({Key? key}) : super(key: key);
+  const TestView({Key? key}) : super(key: key);
 
   @override
   State<TestView> createState() => _TestViewState();
@@ -10,9 +13,10 @@ class TestView extends StatefulWidget {
 class _TestViewState extends BaseState<TestView> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: dynamicHeight(0.1),
-      color: themeData.primaryColor,
+    return BaseView<TestViewModel>(
+      vievModel: TestViewModel(),
+      onPageBuilder: (context, value) => Text("asdasdas"),
+      
     );
   }
 }
